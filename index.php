@@ -10,6 +10,7 @@
     <title>Document</title>
 </head>
 <body>
+<form action="">
 <div class="container" id="divfor">
     <div class="row">
         <h2 class="mb-4 mt-4">PARTIDA 1</h2>
@@ -18,9 +19,9 @@
             <h4 class="d-flex align-items-center">BELGIUM</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text" name="belgiga-1"  value="">
+            <input type="text"   name="a">
             <h3 class="d-flex align-items-center">vs</h3>
-            <input type="text" name="canada-1" id="">
+            <input type="text"  name="b">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">CANADA</h4>
@@ -36,9 +37,9 @@
             <h4 class="d-flex align-items-center">CROATIA</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text" name="belgiga-1"  value="">
+            <input type="text"   name="c">
             <h3 class="d-flex align-items-center">vs</h3>
-            <input type="text" name="canada-1" id="">
+            <input type="text"  name="d">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">MOROCCO</h4>
@@ -54,9 +55,9 @@
             <h4 class="d-flex align-items-center">CROATIA</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text" name="belgiga-1"  value="">
+            <input type="text"  name="e">
             <h3 class="d-flex align-items-center">vs</h3>
-            <input type="text" name="canada-1" id="">
+            <input type="text"  name="f">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">CANADA</h4>
@@ -72,9 +73,9 @@
             <h4 class="d-flex align-items-center">MOROCCO</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text" name="belgiga-1"  value="">
+            <input type="text"   name="g">
             <h3 class="d-flex align-items-center">vs</h3>
-            <input type="text" name="canada-1" id="">
+            <input type="text"  name="h">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">BELGIUM</h4>
@@ -90,9 +91,9 @@
             <h4 class="d-flex align-items-center">MOROCCO</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text" name="belgiga-1"  value="">
+            <input type="text"   name="e">
             <h3 class="d-flex align-items-center">vs</h3>
-            <input type="text" name="canada-1" id="">
+            <input type="text"  name="f">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">CANADA</h4>
@@ -108,9 +109,9 @@
             <h4 class="d-flex align-items-center">BELGIUM</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text" name="belgiga-1"  value="">
+            <input type="text"   name="g">
             <h3 class="d-flex align-items-center">vs</h3>
-            <input type="text" name="canada-1" id="">
+            <input type="text"  name="h">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">CROATIA</h4>
@@ -118,76 +119,265 @@
         </div>
     </div>
 </div>
+<input type="submit" name='submit' class='btn btn-outline-secondary' value="add">
+</form>
+
+
 <?php
-class Car {
-    // Propriétés (variables)
-    public $Équipe;
-    public $Pts;
-    public $Par;
-    public $Gan;
-    public $EMP;
-    public $PER;
-    public $GF;
-    public $GC;
-    public $GP;
+    if ( isset( $_GET['submit'] ) ) {
+    //récupérer les données du formulaire en utilisant la valeur des attributs name comme clé 
+    $maro = $_GET['a']; 
+    $croi = $_GET['b']; 
+    $belg = $_GET['c']; 
+    $cana = $_GET['d']; 
+    $maro2 = $_GET['e']; 
+    $croi2 = $_GET['f']; 
+    $belg2 = $_GET['g']; 
+    $cana2 = $_GET['h']; 
+    $maro3 = $_GET['e']; 
+    $croi3 = $_GET['f']; 
+    $cana3 = $_GET['g']; 
+    $belg3 = $_GET['h'];
+
+
+    //counter
+    // $arrayName = array('' => , );
+    $point = array("MAROCP" => 0, "CROATIEP" => 0, "CANADAP" => 0, "BELQIQUEP" => 0); 
+    $matches = array("MAROCM" => 0, "CROATIEM" => 0, "CANADAM" => 0, "BELQIQUEM" => 0);
+    $gagnant = array('MAROCG' => 0, 'CROATIEG' => 0 , 'CANADAG' => 0 , 'BELQIQUEG' => 0);
+    $null = array("MAROCN" => 0 , "CROATIEN" => 0, "CANADAN" => 0, "BELQIQUEN" => 0);
+    $defaite = array("MAROCD" => 0 , "CROATIED" => 0, "CANADAD" => 0, "BELQIQUED" => 0);
+
+    //add point selon counter by if
+    if($maro!="" && $croi!=""){
+
+        $matches["MAROCM"] += 1;
+        $matches["CROATIEM"] += 1;
+
+        if($maro > $croi ){
+            $point["MAROCP"] += 3;
+            $gagnant["MAROCG"] += 1;
+            $defaite["CROATIED"] += 1;
+
+        }
+        elseif ($maro < $croi ){
+            $point["CROATIEP"] += 3;
+            $gagnant["CROATIEG"] += 1;
+            $defaite["MAROCGD"] += 1;
+
+        }
+        else {
+            $point["MAROCP"] += 1;
+            $point["CROATIEP"] += 1;
+            $null["MAROCN"] += 1;
+            $null["CROATIEN"] += 1;
+
+        }
+    }
     
-    // Méthode constructeur
-    public function __construct($Équipe, $Pts, $Par, $Gan, $EMP, $PER, $GF, $GC, $GP) {
-        $this->Équipe = $Équipe;
-        $this->Pts = $Pts;
-        $this->Par = $Par;
-        $this->Gan = $Gan;
-        $this->EMP = $EMP;
-        $this->PER = $PER;
-        $this->GF = $GF;
-        $this->GC = $GC;
-        $this->GP = $GP;
+    if($belg!="" && $cana!=""){
+
+        $matches["CANADAM"] += 1;
+        $matches["BELQIQUEM"] += 1;
+
+        if($belg > $cana ){
+            $point["BELQIQUEP"] += 3;
+            $gagnant["BELQIQUEG"] += 1;
+            $defaite["CANADAD"] += 1;
+            
+        }
+        elseif ($belg < $cana ){
+            $point["CANADAP"] += 3;
+            $gagnant["CANADAG"] += 1;
+            $defaite["BELQIQUED"] += 1;
+        }
+        else {
+            $point["BELQIQUEP"] += 1;
+            $point["CANADAP"] += 1;
+            $null["BELQIQUEN"] += 1;
+            $null["CANADAN"] += 1;
+        }
     }
 
 
-}
+    if($maro2!="" && $croi2!=""){
 
-// Créer un objet à partir de la classe et transmettre les paramètres au constructeur
-$car1 = new Car("Maroc", "0", 0, 0, 0, 0, 0, 0, 0);
-$car2 = new Car("Canada", "0", 0, 0, 0, 0, 0, 0, 0);
-$car3 = new Car("Croatie", "0", 0, 0, 0, 0, 0, 0, 0);
-$car4 = new Car("Belgique", "0", 0, 0, 0, 0, 0, 0, 0);
+        $matches["MAROCM"] += 1;
+        $matches["CROATIEM"] += 1;
 
-// Créer un tableau des objets 
-$cars = array($car1, $car2, $car3, $car4);
+        if($maro2 > $croi2 ){
+            $point["MAROCP"] += 3;
+            $gagnant["MAROCG"] += 1;
+            $defaite["CROATIED"] += 1;
 
+        }
+        elseif ($maro2 < $croi2 ){
+            $point["CROATIEP"] += 3;
+            $gagnant["CROATIEG"] += 1;
+            $defaite["MAROCD"] += 1;
 
-// Parcourez le tableau d'objets et affichez leurs propriétés dans le tableau
-echo "<table class='table' id='table'>
-        <tr>
-          <th scope='col'>Selection</th>
-          <th scope='col'>Point</th>
-          <th scope='col'>Par</th>
-          <th scope='col'>Gan</th>
-          <th scope='col'>Emp</th>
-          <th scope='col'>Per</th>
-          <th scope='col'>GF</th>
-          <th scope='col'>GC</th>
-          <th scope='col'>DEF</th>
-        </tr>";
+        }
+        else {
+            $point["MAROCP"] += 1;
+            $point["CROATIEP"] += 1;
+            $null["MAROCN"] += 1;
+            $null["CROATIEN"] += 1;
 
-        foreach($cars as $car){
-            echo "<tr>
-            <td> $car->Équipe . </td>
-            <td> $car->Pts . </td>
-            <td> $car->Par . </td>
-            <td> $car->Gan . </td>
-            <td> $car->EMP . </td>
-            <td> $car->PER . </td>
-            <td> $car->GF . </td>
-            <td> $car->GC . </td>
-            <td> $car->GP . </td>
-            </tr>";
+        }
+    }
+    
+    if($belg2!="" && $cana2!=""){
 
+        $matches["CANADAM"] += 1;
+        $matches["BELQIQUEM"] += 1;
+
+        if($belg2 > $cana2 ){
+            $point["BELQIQUEP"] += 3;
+            $gagnant["BELQIQUEG"] += 1;
+            $defaite["CANADAD"] += 1;
+        }
+        elseif ($belg2 < $cana2 ){
+            $point["CANADAP"] += 3;
+            $gagnant["CANADAG"] += 1;
+            $defaite["BELQIQUED"] += 1;
             
-        }   
-        echo "</table>";
-        // Terminer le tableau HTML          
+        }
+        else {
+            $point["BELQIQUEP"] += 1;
+            $point["CANADAP"] += 1;
+            $null["BELQIQUEN"] += 1;
+            $null["CANADAN"] += 1;
+        }
+    }
+
+    if($maro3!="" && $croi3!=""){
+
+        $matches["MAROCM"] += 1;
+        $matches["CROATIEM"] += 1;
+
+        if($maro3 > $croi3 ){
+            $point["MAROCP"] += 3;
+            $gagnant["MAROCG"] += 1;
+            $defaite["CROATIED"] += 1;
+
+        }
+        elseif ($maro3 < $croi3 ){
+            $point["CROATIEP"] += 3;
+            $gagnant["CROATIEG"] += 1;
+            $defaite["MAROCD"] += 1;
+
+        }
+        else {
+            $point["MAROCP"] += 1;
+            $point["CROATIEP"] += 1;
+            $null["MAROCN"] += 1;
+            $null["CROATIEN"] += 1;
+
+        }
+    }
+    
+    if($belg3!="" && $cana3!=""){
+
+        $matches["CANADAM"] += 1;
+        $matches["BELQIQUEM"] += 1;
+
+        if($belg3 > $cana3 ){
+            $point["BELQIQUEP"] += 3;
+            $gagnant["BELQIQUEG"] += 1;
+            $defaite["CANADAD"] += 1;
+        }
+        elseif ($belg3 < $cana3 ){
+            $point["CANADAP"] += 3;
+            $gagnant["CANADAG"] += 1;
+            $defaite["BELQIQUED"] += 1;
+        }
+        else {
+            $point["BELQIQUEP"] += 1;
+            $point["CANADAP"] += 1;
+            $null["BELQIQUEN"] += 1;
+            $null["CANADAN"] += 1;
+        }
+    }
+
+    //those final counter into variables 
+    $Mmat = $matches["MAROCM"] ;
+    $CRmat = $matches["CROATIEM"] ;
+    $CAmat = $matches["CANADAM"] ;
+    $Bmat = $matches["BELQIQUEM"] ;
+    
+    //those final counter into variables 
+    $Mpts =  $point["MAROCP"];
+    $CRpts =  $point["CROATIEP"];
+    $CNpts =  $point["CANADAP"];
+    $Bpts =  $point["BELQIQUEP"];
+
+    //those final counter into variables 
+    $Mgan =  $gagnant["MAROCG"];
+    $CRgan =  $gagnant["CROATIEG"];
+    $CNgan =  $gagnant["CANADAG"];
+    $Bgan=  $gagnant["BELQIQUEG"];
+
+    //those final counter into variables 
+    $Mnul =  $null["MAROCN"];
+    $CRnul = $null["CROATIEN"];
+    $CNnul = $null["CANADAN"];
+    $Bnul =  $null["BELQIQUEN"];
+
+    //those final counter into variables 
+    $Mdef =  $defaite["MAROCD"];
+    $CRdef = $defaite["CROATIED"];
+    $CNdef = $defaite["CANADAD"];
+    $Bdef =  $defaite["BELQIQUED"];
+
+    echo "
+    <table class='table table-bordered border-primary border border-dark'>
+    <tr>
+        <th>equipe</th>
+        <th>point</th>
+        <th>matches</th>
+        <th>gagnant</th>
+        <th>null</th>
+        <th>defaite</th>
+
+
+    </tr>
+    <tr>
+        <td>EQ1</td>
+        <td>$Mpts</td>
+        <td>$Mmat</td>
+        <td>$Mgan</td>
+        <td>$Mnul</td>
+        <td>$Mdef</td>
+
+    </tr>
+    <tr>
+        <td>EQ2</td>
+        <td>$CRpts</td>
+        <td>$CRmat</td>
+        <td>$CRgan</td>
+        <td>$CRnul</td>
+        <td>$CRdef</td>
+        
+    </tr>
+    <tr>
+        <td>EQ3</td>
+        <td>$CNpts</td>
+        <td>$CAmat</td>
+        <td>$CNgan</td>
+        <td>$CNnul</td>
+        <td>$CNdef</td>
+    </tr>
+    <tr>
+        <td>EQ4</td>
+        <td>$Bpts</td>
+        <td>$Bmat</td>
+        <td>$Bgan</td>
+        <td>$Bnul</td>
+        <td>$Bdef</td>
+    </tr>
+    </table>
+    " ;
+}
 
 ?>
 </body>
