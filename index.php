@@ -119,7 +119,9 @@
         </div>
     </div>
 </div>
-<input type="submit" name='submit' class='btn btn-outline-secondary' value="add">
+
+<input id="btn1" type="submit" name='submit' class="d-grid gap-2 col-6 mx-auto" value="Ajouter">
+
 </form>
 
 
@@ -148,7 +150,7 @@
     $null = array("MAROCN" => 0 , "CROATIEN" => 0, "CANADAN" => 0, "BELQIQUEN" => 0);
     $defaite = array("MAROCD" => 0 , "CROATIED" => 0, "CANADAD" => 0, "BELQIQUED" => 0);
 
-    //add point selon counter by if
+    //ajoute point selon compteur par if
     if($maro!="" && $croi!=""){
 
         $matches["MAROCM"] += 1;
@@ -299,31 +301,31 @@
         }
     }
 
-    //those final counter into variables 
+    //ceux compteur final en variables 
     $Mmat = $matches["MAROCM"] ;
     $CRmat = $matches["CROATIEM"] ;
     $CAmat = $matches["CANADAM"] ;
     $Bmat = $matches["BELQIQUEM"] ;
     
-    //those final counter into variables 
+    //ceux compteur final en variables 
     $Mpts =  $point["MAROCP"];
     $CRpts =  $point["CROATIEP"];
     $CNpts =  $point["CANADAP"];
     $Bpts =  $point["BELQIQUEP"];
 
-    //those final counter into variables 
+    //ceux compteur final en variables 
     $Mgan =  $gagnant["MAROCG"];
     $CRgan =  $gagnant["CROATIEG"];
     $CNgan =  $gagnant["CANADAG"];
     $Bgan=  $gagnant["BELQIQUEG"];
 
-    //those final counter into variables 
+    //ceux compteur final en variables
     $Mnul =  $null["MAROCN"];
     $CRnul = $null["CROATIEN"];
     $CNnul = $null["CANADAN"];
     $Bnul =  $null["BELQIQUEN"];
 
-    //those final counter into variables 
+    //ceux compteur final en variables
     $Mdef =  $defaite["MAROCD"];
     $CRdef = $defaite["CROATIED"];
     $CNdef = $defaite["CANADAD"];
@@ -332,17 +334,18 @@
     echo "
     <table class='table table-bordered border-primary border border-dark'>
     <tr>
-        <th>equipe</th>
-        <th>point</th>
-        <th>matches</th>
-        <th>gagnant</th>
-        <th>null</th>
-        <th>defaite</th>
-
-
+        <th>Selección</th>
+        <th>PTS.</th>
+        <th>PAR.</th>
+        <th>GAN.</th>
+        <th>EMP.</th>
+        <th>PER.</th>
+        <th>G.F.</th>
+        <th>G.C.</th>
+        <th>+/-</th>
     </tr>
     <tr>
-        <td>EQ1</td>
+        <td>MOROCCO</td>
         <td>$Mpts</td>
         <td>$Mmat</td>
         <td>$Mgan</td>
@@ -351,7 +354,7 @@
 
     </tr>
     <tr>
-        <td>EQ2</td>
+        <td>BELGIUM</td>
         <td>$CRpts</td>
         <td>$CRmat</td>
         <td>$CRgan</td>
@@ -360,7 +363,7 @@
         
     </tr>
     <tr>
-        <td>EQ3</td>
+        <td>CANADA</td>
         <td>$CNpts</td>
         <td>$CAmat</td>
         <td>$CNgan</td>
@@ -368,7 +371,7 @@
         <td>$CNdef</td>
     </tr>
     <tr>
-        <td>EQ4</td>
+        <td>CROATIA</td>
         <td>$Bpts</td>
         <td>$Bmat</td>
         <td>$Bgan</td>
