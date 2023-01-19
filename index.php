@@ -9,8 +9,17 @@
     <title>Document</title>
 </head>
 <body>
+<nav class="navbar  mb-5">
+  <div class="container-fluid">
+    <a class="navbar-brand">Prédicteur</a>
+    <form class="d-flex" role="search">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-secondary " type="submit">Search</button>
+    </form>
+  </div>
+</nav>
 <form action="">
-<div class="container" id="divfor">
+<div class="container cont mt-5" id="divfor">
     <div class="row">
         <h2 class="mb-4 mt-4">PARTIDA 1</h2>
         <div class="col-sm-4 d-flex justify-content-evenly">
@@ -28,7 +37,7 @@
         </div>
     </div>
 </div>
-<div class="container" id="divfor">
+<div class="container cont" id="divfor">
     <div class="row">
         <h2 class="mb-4 mt-4">PARTIDA 2</h2>
         <div class="col-sm-4 d-flex justify-content-evenly">
@@ -46,7 +55,7 @@
         </div>
     </div>
 </div>
-<div class="container" id="divfor">
+<div class="container cont" id="divfor">
     <div class="row">
         <h2 class="mb-4 mt-4">PARTIDA 3</h2>
         <div class="col-sm-4 d-flex justify-content-evenly">
@@ -64,7 +73,7 @@
         </div>
     </div>
 </div>
-<div class="container" id="divfor">
+<div class="container cont" id="divfor">
     <div class="row">
         <h2 class="mb-4 mt-4">PARTIDA 4</h2>
         <div class="col-sm-4 d-flex justify-content-evenly">
@@ -82,7 +91,7 @@
         </div>
     </div>
 </div>
-<div class="container" id="divfor">
+<div class="container cont" id="divfor">
     <div class="row">
         <h2 class="mb-4 mt-4">PARTIDA 5</h2>
         <div class="col-sm-4 d-flex justify-content-evenly">
@@ -100,7 +109,7 @@
         </div>
     </div>
 </div>
-<div class="container" id="divfor">
+<div class="container cont" id="divfor">
     <div class="row">
         <h2 class="mb-4 mt-4">PARTIDA 6</h2>
         <div class="col-sm-4 d-flex justify-content-evenly">
@@ -142,18 +151,23 @@
 
 
     //counter
-    // $arrayName = array('' => , );
     $point = array("MAROCP" => 0, "CROATIEP" => 0, "CANADAP" => 0, "BELQIQUEP" => 0); 
     $matches = array("MAROCM" => 0, "CROATIEM" => 0, "CANADAM" => 0, "BELQIQUEM" => 0);
     $gagnant = array('MAROCG' => 0, 'CROATIEG' => 0 , 'CANADAG' => 0 , 'BELQIQUEG' => 0);
     $null = array("MAROCN" => 0 , "CROATIEN" => 0, "CANADAN" => 0, "BELQIQUEN" => 0);
     $defaite = array("MAROCD" => 0 , "CROATIED" => 0, "CANADAD" => 0, "BELQIQUED" => 0);
+    $goalfor = array("MAROCY" => 0 , "CROATIEY" => 0, "CANADAY" => 0, "BELQIQUEY" => 0);
+    $goalsConceded = array("MAROCL" => 0 , "CROATIEL" => 0, "CANADAL" => 0, "BELQIQUEL" => 0);
 
     //ajoute point selon compteur par if
     if($maro!="" && $croi!=""){
 
         $matches["MAROCM"] += 1;
         $matches["CROATIEM"] += 1;
+        $goalfor["MAROCY"] += $maro;
+        $goalfor["CROATIEY"] += $croi;
+        $goalsConceded["MAROCL"] += $croi;
+        $goalsConceded["CROATIEL"] += $maro;
 
         if($maro > $croi ){
             $point["MAROCP"] += 3;
@@ -180,6 +194,10 @@
 
         $matches["CANADAM"] += 1;
         $matches["BELQIQUEM"] += 1;
+        $goalfor["BELQIQUEY"] += $belg;
+        $goalfor["CANADAY"] += $cana;
+        $goalsConceded["BELQIQUEL"] += $cana;
+        $goalsConceded["CANADAL"] += $belg;
 
         if($belg > $cana ){
             $point["BELQIQUEP"] += 3;
@@ -205,6 +223,11 @@
 
         $matches["MAROCM"] += 1;
         $matches["BELQIQUEM"] += 1;
+        $goalfor["MAROCY"] += $maro2;
+        $goalfor["BELQIQUEY"] += $belg2;
+        $goalsConceded["MAROCL"] += $belg2;
+        $goalsConceded["BELQIQUEL"] += $maro2;
+        
 
         if($maro2 > $belg2 ){
             $point["MAROCP"] += 3;
@@ -231,6 +254,10 @@
 
         $matches["CANADAM"] += 1;
         $matches["CROATIEM"] += 1;
+        $goalfor["CROATIEY"] += $croi2;
+        $goalfor["CANADAY"] += $cana2;
+        $goalsConceded["CROATIEL"] += $cana2;
+        $goalsConceded["CANADAL"] += $croi2;
 
         if($croi2 > $cana2 ){
             $point["CROATIEP"] += 3;
@@ -255,6 +282,10 @@
 
         $matches["MAROCM"] += 1;
         $matches["CANADAM"] += 1;
+        $goalfor["MAROCY"] += $maro3;
+        $goalfor["CANADAY"] += $cana3;
+        $goalsConceded["MAROCL"] += $cana3;
+        $goalsConceded["CANADAL"] += $maro3;
 
         if($maro3 > $cana3 ){
             $point["MAROCP"] += 3;
@@ -281,6 +312,10 @@
 
         $matches["CROATIEM"] += 1;
         $matches["BELQIQUEM"] += 1;
+        $goalfor["BELQIQUEY"] += $belg3;
+        $goalfor["CROATIEY"] += $croi3;
+        $goalsConceded["BELQIQUEL"] += $croi3;
+        $goalsConceded["CROATIEL"] += $belg3;
 
         if($belg3 > $croi3 ){
             $point["BELQIQUEP"] += 3;
@@ -328,9 +363,30 @@
     $Mdef =  $defaite["MAROCD"];
     $CRdef = $defaite["CROATIED"];
     $CNdef = $defaite["CANADAD"];
-    $Bdef =  $defaite["BELQIQUED"];
+    $Bdef =  $defaite["BELQIQUED"]; 
+
+    //ceux compteur final en variables
+    $Mgoal =  $goalfor["MAROCY"];
+    $CRgoal = $goalfor["CROATIEY"];
+    $CNgoal = $goalfor["CANADAY"];
+    $Bgoal =  $goalfor["BELQIQUEY"];
+
+    //ceux compteur final en variables
+    $Mgoals =  $goalsConceded["MAROCL"];
+    $CRgoals = $goalsConceded["CROATIEL"];
+    $CNgoals = $goalsConceded["CANADAL"];
+    $Bgoals =  $goalsConceded["BELQIQUEL"];
+
+
+
+    // those final counter into variables 
+    $diffEQ1 = $Mgoal - $Mgoals ;
+    $diffEQ2 = $CRgoal - $CRgoals ;
+    $diffEQ3 = $CNgoal - $CNgoals ;
+    $diffEQ4 = $Bgoal - $Bgoals ;
 
     echo "
+    <div class='container cont pb-0 pt-3' id='divfor'>
     <table class='table table-bordered border-primary border border-dark'>
     <tr>
         <th>Selección</th>
@@ -350,6 +406,9 @@
         <td>$Mgan</td>
         <td>$Mnul</td>
         <td>$Mdef</td>
+        <td>$Mgoal</td>
+        <td>$Mgoals</td>
+        <td>$diffEQ1</td>
 
     </tr>
     <tr>
@@ -359,6 +418,9 @@
         <td>$CRgan</td>
         <td>$CRnul</td>
         <td>$CRdef</td>
+        <td>$CRgoal</td>
+        <td>$CRgoals</td>
+        <td>$diffEQ2</td>
         
     </tr>
     <tr>
@@ -368,6 +430,9 @@
         <td>$CNgan</td>
         <td>$CNnul</td>
         <td>$CNdef</td>
+        <td>$CNgoal</td>
+        <td>$CNgoals</td>
+        <td>$diffEQ3</td>
     </tr>
     <tr>
         <td>BELGIUM</td>
@@ -376,8 +441,12 @@
         <td>$Bgan</td>
         <td>$Bnul</td>
         <td>$Bdef</td>
+        <td>$Bgoal</td>
+        <td>$Bgoals</td>
+        <td>$diffEQ4</td>
     </tr>
     </table>
+    </div>
     " ;
 }
 
