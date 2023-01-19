@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +18,9 @@
             <h4 class="d-flex align-items-center">BELGIUM</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text"   name="a">
+            <input type="text"   name="c">
             <h3 class="d-flex align-items-center">vs</h3>
-            <input type="text"  name="b">
+            <input type="text"  name="d">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">CANADA</h4>
@@ -37,9 +36,9 @@
             <h4 class="d-flex align-items-center">CROATIA</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text"   name="c">
+            <input type="text"   name="b">
             <h3 class="d-flex align-items-center">vs</h3>
-            <input type="text"  name="d">
+            <input type="text"  name="a">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">MOROCCO</h4>
@@ -55,9 +54,9 @@
             <h4 class="d-flex align-items-center">CROATIA</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text"  name="e">
-            <h3 class="d-flex align-items-center">vs</h3>
             <input type="text"  name="f">
+            <h3 class="d-flex align-items-center">vs</h3>
+            <input type="text"  name="h">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">CANADA</h4>
@@ -73,9 +72,9 @@
             <h4 class="d-flex align-items-center">MOROCCO</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text"   name="g">
+            <input type="text"   name="e">
             <h3 class="d-flex align-items-center">vs</h3>
-            <input type="text"  name="h">
+            <input type="text"  name="g">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">BELGIUM</h4>
@@ -91,9 +90,9 @@
             <h4 class="d-flex align-items-center">MOROCCO</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text"   name="e">
+            <input type="text"   name="i">
             <h3 class="d-flex align-items-center">vs</h3>
-            <input type="text"  name="f">
+            <input type="text"  name="k">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">CANADA</h4>
@@ -109,9 +108,9 @@
             <h4 class="d-flex align-items-center">BELGIUM</h4>
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
-            <input type="text"   name="g">
+            <input type="text"   name="l">
             <h3 class="d-flex align-items-center">vs</h3>
-            <input type="text"  name="h">
+            <input type="text"  name="j">
         </div>
         <div class="col-sm-4 d-flex justify-content-evenly">
             <h4 class="d-flex align-items-center">CROATIA</h4>
@@ -136,10 +135,10 @@
     $croi2 = $_GET['f']; 
     $belg2 = $_GET['g']; 
     $cana2 = $_GET['h']; 
-    $maro3 = $_GET['e']; 
-    $croi3 = $_GET['f']; 
-    $cana3 = $_GET['g']; 
-    $belg3 = $_GET['h'];
+    $maro3 = $_GET['i']; 
+    $croi3 = $_GET['j']; 
+    $cana3 = $_GET['k']; 
+    $belg3 = $_GET['l'];
 
 
     //counter
@@ -202,102 +201,102 @@
     }
 
 
-    if($maro2!="" && $croi2!=""){
+    if($maro2!="" && $belg2!=""){
 
         $matches["MAROCM"] += 1;
-        $matches["CROATIEM"] += 1;
+        $matches["BELQIQUEM"] += 1;
 
-        if($maro2 > $croi2 ){
+        if($maro2 > $belg2 ){
             $point["MAROCP"] += 3;
             $gagnant["MAROCG"] += 1;
-            $defaite["CROATIED"] += 1;
+            $defaite["BELQIQUED"] += 1;
 
         }
-        elseif ($maro2 < $croi2 ){
-            $point["CROATIEP"] += 3;
-            $gagnant["CROATIEG"] += 1;
+        elseif ($maro2 < $belg2 ){
+            $point["BELQIQUEP"] += 3;
+            $gagnant["BELQIQUEG"] += 1;
             $defaite["MAROCD"] += 1;
 
         }
         else {
             $point["MAROCP"] += 1;
-            $point["CROATIEP"] += 1;
+            $point["BELQIQUEP"] += 1;
             $null["MAROCN"] += 1;
-            $null["CROATIEN"] += 1;
+            $null["BELQIQUEN"] += 1;
 
         }
     }
     
-    if($belg2!="" && $cana2!=""){
+    if($croi2!="" && $cana2!=""){
 
         $matches["CANADAM"] += 1;
-        $matches["BELQIQUEM"] += 1;
+        $matches["CROATIEM"] += 1;
 
-        if($belg2 > $cana2 ){
-            $point["BELQIQUEP"] += 3;
-            $gagnant["BELQIQUEG"] += 1;
+        if($croi2 > $cana2 ){
+            $point["CROATIEP"] += 3;
+            $gagnant["CROATIEG"] += 1;
             $defaite["CANADAD"] += 1;
         }
-        elseif ($belg2 < $cana2 ){
+        elseif ($croi2 < $cana2 ){
             $point["CANADAP"] += 3;
             $gagnant["CANADAG"] += 1;
-            $defaite["BELQIQUED"] += 1;
+            $defaite["CROATIED"] += 1;
             
         }
         else {
-            $point["BELQIQUEP"] += 1;
+            $point["CROATIEP"] += 1;
             $point["CANADAP"] += 1;
-            $null["BELQIQUEN"] += 1;
+            $null["CROATIEN"] += 1;
             $null["CANADAN"] += 1;
         }
     }
 
-    if($maro3!="" && $croi3!=""){
+    if($maro3!="" && $cana3!=""){
 
         $matches["MAROCM"] += 1;
-        $matches["CROATIEM"] += 1;
+        $matches["CANADAM"] += 1;
 
-        if($maro3 > $croi3 ){
+        if($maro3 > $cana3 ){
             $point["MAROCP"] += 3;
             $gagnant["MAROCG"] += 1;
-            $defaite["CROATIED"] += 1;
+            $defaite["CANADAD"] += 1;
 
         }
-        elseif ($maro3 < $croi3 ){
-            $point["CROATIEP"] += 3;
-            $gagnant["CROATIEG"] += 1;
+        elseif ($maro3 < $cana3 ){
+            $point["CANADAP"] += 3;
+            $gagnant["CANADAG"] += 1;
             $defaite["MAROCD"] += 1;
 
         }
         else {
             $point["MAROCP"] += 1;
-            $point["CROATIEP"] += 1;
+            $point["CANADAP"] += 1;
             $null["MAROCN"] += 1;
-            $null["CROATIEN"] += 1;
+            $null["CANADAN"] += 1;
 
         }
     }
     
-    if($belg3!="" && $cana3!=""){
+    if($belg3!="" && $croi3!=""){
 
-        $matches["CANADAM"] += 1;
+        $matches["CROATIEM"] += 1;
         $matches["BELQIQUEM"] += 1;
 
-        if($belg3 > $cana3 ){
+        if($belg3 > $croi3 ){
             $point["BELQIQUEP"] += 3;
             $gagnant["BELQIQUEG"] += 1;
-            $defaite["CANADAD"] += 1;
+            $defaite["CROATIED"] += 1;
         }
-        elseif ($belg3 < $cana3 ){
-            $point["CANADAP"] += 3;
-            $gagnant["CANADAG"] += 1;
+        elseif ($belg3 < $croi3 ){
+            $point["CROATIEP"] += 3;
+            $gagnant["CROATIEG"] += 1;
             $defaite["BELQIQUED"] += 1;
         }
         else {
             $point["BELQIQUEP"] += 1;
-            $point["CANADAP"] += 1;
+            $point["CROATIEP"] += 1;
             $null["BELQIQUEN"] += 1;
-            $null["CANADAN"] += 1;
+            $null["CROATIEN"] += 1;
         }
     }
 
@@ -354,7 +353,7 @@
 
     </tr>
     <tr>
-        <td>BELGIUM</td>
+        <td>CROATIA</td>
         <td>$CRpts</td>
         <td>$CRmat</td>
         <td>$CRgan</td>
@@ -371,7 +370,7 @@
         <td>$CNdef</td>
     </tr>
     <tr>
-        <td>CROATIA</td>
+        <td>BELGIUM</td>
         <td>$Bpts</td>
         <td>$Bmat</td>
         <td>$Bgan</td>
