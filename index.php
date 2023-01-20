@@ -151,235 +151,235 @@
 
 
     //counter
-    $point = array("MAROCP" => 0, "CROATIEP" => 0, "CANADAP" => 0, "BELQIQUEP" => 0); 
-    $matches = array("MAROCM" => 0, "CROATIEM" => 0, "CANADAM" => 0, "BELQIQUEM" => 0);
-    $gagnant = array('MAROCG' => 0, 'CROATIEG' => 0 , 'CANADAG' => 0 , 'BELQIQUEG' => 0);
-    $null = array("MAROCN" => 0 , "CROATIEN" => 0, "CANADAN" => 0, "BELQIQUEN" => 0);
-    $defaite = array("MAROCD" => 0 , "CROATIED" => 0, "CANADAD" => 0, "BELQIQUED" => 0);
-    $goalfor = array("MAROCY" => 0 , "CROATIEY" => 0, "CANADAY" => 0, "BELQIQUEY" => 0);
-    $goalsConceded = array("MAROCL" => 0 , "CROATIEL" => 0, "CANADAL" => 0, "BELQIQUEL" => 0);
+    $point = array("MAROC" => 0, "CROATIE" => 0, "CANADA" => 0, "BELQIQUE" => 0); 
+    $matches = array("MAROC" => 0, "CROATIE" => 0, "CANADA" => 0, "BELQIQUE" => 0);
+    $gagnant = array('MAROC' => 0, 'CROATIE' => 0 , 'CANADA' => 0 , 'BELQIQUE' => 0);
+    $null = array("MAROC" => 0 , "CROATIE" => 0, "CANADA" => 0, "BELQIQUE" => 0);
+    $defaite = array("MAROC" => 0 , "CROATIE" => 0, "CANADA" => 0, "BELQIQUE" => 0);
+    $goalfor = array("MAROC" => 0 , "CROATIE" => 0, "CANADA" => 0, "BELQIQUE" => 0);
+    $goalsConceded = array("MAROC" => 0 , "CROATIE" => 0, "CANADA" => 0, "BELQIQUE" => 0);
 
     //ajoute point selon compteur par if
     if($maro!="" && $croi!=""){
 
-        $matches["MAROCM"] += 1;
-        $matches["CROATIEM"] += 1;
-        $goalfor["MAROCY"] += $maro;
-        $goalfor["CROATIEY"] += $croi;
-        $goalsConceded["MAROCL"] += $croi;
-        $goalsConceded["CROATIEL"] += $maro;
+        $matches["MAROC"] += 1;
+        $matches["CROATIE"] += 1;
+        $goalfor["MAROC"] += $maro;
+        $goalfor["CROATIE"] += $croi;
+        $goalsConceded["MAROC"] += $croi;
+        $goalsConceded["CROATIE"] += $maro;
 
         if($maro > $croi ){
-            $point["MAROCP"] += 3;
-            $gagnant["MAROCG"] += 1;
-            $defaite["CROATIED"] += 1;
+            $point["MAROC"] += 3;
+            $gagnant["MAROC"] += 1;
+            $defaite["CROATIE"] += 1;
 
         }
         elseif ($maro < $croi ){
-            $point["CROATIEP"] += 3;
-            $gagnant["CROATIEG"] += 1;
-            $defaite["MAROCGD"] += 1;
+            $point["CROATIE"] += 3;
+            $gagnant["CROATIE"] += 1;
+            $defaite["MAROC"] += 1;
 
         }
         else {
-            $point["MAROCP"] += 1;
-            $point["CROATIEP"] += 1;
-            $null["MAROCN"] += 1;
-            $null["CROATIEN"] += 1;
+            $point["MAROC"] += 1;
+            $point["CROATIE"] += 1;
+            $null["MAROC"] += 1;
+            $null["CROATIE"] += 1;
 
         }
     }
     
     if($belg!="" && $cana!=""){
 
-        $matches["CANADAM"] += 1;
-        $matches["BELQIQUEM"] += 1;
-        $goalfor["BELQIQUEY"] += $belg;
-        $goalfor["CANADAY"] += $cana;
-        $goalsConceded["BELQIQUEL"] += $cana;
-        $goalsConceded["CANADAL"] += $belg;
+        $matches["CANADA"] += 1;
+        $matches["BELQIQUE"] += 1;
+        $goalfor["BELQIQUE"] += $belg;
+        $goalfor["CANADA"] += $cana;
+        $goalsConceded["BELQIQUE"] += $cana;
+        $goalsConceded["CANADA"] += $belg;
 
         if($belg > $cana ){
-            $point["BELQIQUEP"] += 3;
-            $gagnant["BELQIQUEG"] += 1;
-            $defaite["CANADAD"] += 1;
+            $point["BELQIQUE"] += 3;
+            $gagnant["BELQIQUE"] += 1;
+            $defaite["CANADA"] += 1;
             
         }
         elseif ($belg < $cana ){
-            $point["CANADAP"] += 3;
-            $gagnant["CANADAG"] += 1;
-            $defaite["BELQIQUED"] += 1;
+            $point["CANADA"] += 3;
+            $gagnant["CANADA"] += 1;
+            $defaite["BELQIQUE"] += 1;
         }
         else {
-            $point["BELQIQUEP"] += 1;
-            $point["CANADAP"] += 1;
-            $null["BELQIQUEN"] += 1;
-            $null["CANADAN"] += 1;
+            $point["BELQIQUE"] += 1;
+            $point["CANADA"] += 1;
+            $null["BELQIQUE"] += 1;
+            $null["CANADA"] += 1;
         }
     }
 
 
     if($maro2!="" && $belg2!=""){
 
-        $matches["MAROCM"] += 1;
-        $matches["BELQIQUEM"] += 1;
-        $goalfor["MAROCY"] += $maro2;
-        $goalfor["BELQIQUEY"] += $belg2;
-        $goalsConceded["MAROCL"] += $belg2;
-        $goalsConceded["BELQIQUEL"] += $maro2;
+        $matches["MAROC"] += 1;
+        $matches["BELQIQUE"] += 1;
+        $goalfor["MAROC"] += $maro2;
+        $goalfor["BELQIQUE"] += $belg2;
+        $goalsConceded["MAROC"] += $belg2;
+        $goalsConceded["BELQIQUE"] += $maro2;
         
 
         if($maro2 > $belg2 ){
-            $point["MAROCP"] += 3;
-            $gagnant["MAROCG"] += 1;
-            $defaite["BELQIQUED"] += 1;
+            $point["MAROC"] += 3;
+            $gagnant["MAROC"] += 1;
+            $defaite["BELQIQUE"] += 1;
 
         }
         elseif ($maro2 < $belg2 ){
-            $point["BELQIQUEP"] += 3;
-            $gagnant["BELQIQUEG"] += 1;
-            $defaite["MAROCD"] += 1;
+            $point["BELQIQUE"] += 3;
+            $gagnant["BELQIQUE"] += 1;
+            $defaite["MAROC"] += 1;
 
         }
         else {
-            $point["MAROCP"] += 1;
-            $point["BELQIQUEP"] += 1;
-            $null["MAROCN"] += 1;
-            $null["BELQIQUEN"] += 1;
+            $point["MAROC"] += 1;
+            $point["BELQIQUE"] += 1;
+            $null["MAROC"] += 1;
+            $null["BELQIQUE"] += 1;
 
         }
     }
     
     if($croi2!="" && $cana2!=""){
 
-        $matches["CANADAM"] += 1;
-        $matches["CROATIEM"] += 1;
-        $goalfor["CROATIEY"] += $croi2;
-        $goalfor["CANADAY"] += $cana2;
-        $goalsConceded["CROATIEL"] += $cana2;
-        $goalsConceded["CANADAL"] += $croi2;
+        $matches["CANADA"] += 1;
+        $matches["CROATIE"] += 1;
+        $goalfor["CROATIE"] += $croi2;
+        $goalfor["CANADA"] += $cana2;
+        $goalsConceded["CROATIE"] += $cana2;
+        $goalsConceded["CANADA"] += $croi2;
 
         if($croi2 > $cana2 ){
-            $point["CROATIEP"] += 3;
-            $gagnant["CROATIEG"] += 1;
-            $defaite["CANADAD"] += 1;
+            $point["CROATIE"] += 3;
+            $gagnant["CROATIE"] += 1;
+            $defaite["CANADA"] += 1;
         }
         elseif ($croi2 < $cana2 ){
-            $point["CANADAP"] += 3;
-            $gagnant["CANADAG"] += 1;
-            $defaite["CROATIED"] += 1;
+            $point["CANADA"] += 3;
+            $gagnant["CANADA"] += 1;
+            $defaite["CROATIE"] += 1;
             
         }
         else {
-            $point["CROATIEP"] += 1;
-            $point["CANADAP"] += 1;
-            $null["CROATIEN"] += 1;
-            $null["CANADAN"] += 1;
+            $point["CROATIE"] += 1;
+            $point["CANADA"] += 1;
+            $null["CROATIE"] += 1;
+            $null["CANADA"] += 1;
         }
     }
 
     if($maro3!="" && $cana3!=""){
 
-        $matches["MAROCM"] += 1;
-        $matches["CANADAM"] += 1;
-        $goalfor["MAROCY"] += $maro3;
-        $goalfor["CANADAY"] += $cana3;
-        $goalsConceded["MAROCL"] += $cana3;
-        $goalsConceded["CANADAL"] += $maro3;
+        $matches["MAROC"] += 1;
+        $matches["CANADA"] += 1;
+        $goalfor["MAROC"] += $maro3;
+        $goalfor["CANADA"] += $cana3;
+        $goalsConceded["MAROC"] += $cana3;
+        $goalsConceded["CANADA"] += $maro3;
 
         if($maro3 > $cana3 ){
-            $point["MAROCP"] += 3;
-            $gagnant["MAROCG"] += 1;
-            $defaite["CANADAD"] += 1;
+            $point["MAROC"] += 3;
+            $gagnant["MAROC"] += 1;
+            $defaite["CANADA"] += 1;
 
         }
         elseif ($maro3 < $cana3 ){
-            $point["CANADAP"] += 3;
-            $gagnant["CANADAG"] += 1;
-            $defaite["MAROCD"] += 1;
+            $point["CANADA"] += 3;
+            $gagnant["CANADA"] += 1;
+            $defaite["MAROC"] += 1;
 
         }
         else {
-            $point["MAROCP"] += 1;
-            $point["CANADAP"] += 1;
-            $null["MAROCN"] += 1;
-            $null["CANADAN"] += 1;
+            $point["MAROC"] += 1;
+            $point["CANADA"] += 1;
+            $null["MAROC"] += 1;
+            $null["CANADA"] += 1;
 
         }
     }
     
     if($belg3!="" && $croi3!=""){
 
-        $matches["CROATIEM"] += 1;
-        $matches["BELQIQUEM"] += 1;
-        $goalfor["BELQIQUEY"] += $belg3;
-        $goalfor["CROATIEY"] += $croi3;
-        $goalsConceded["BELQIQUEL"] += $croi3;
-        $goalsConceded["CROATIEL"] += $belg3;
+        $matches["CROATIE"] += 1;
+        $matches["BELQIQUE"] += 1;
+        $goalfor["BELQIQUE"] += $belg3;
+        $goalfor["CROATIE"] += $croi3;
+        $goalsConceded["BELQIQUE"] += $croi3;
+        $goalsConceded["CROATIE"] += $belg3;
 
         if($belg3 > $croi3 ){
-            $point["BELQIQUEP"] += 3;
-            $gagnant["BELQIQUEG"] += 1;
-            $defaite["CROATIED"] += 1;
+            $point["BELQIQUE"] += 3;
+            $gagnant["BELQIQUE"] += 1;
+            $defaite["CROATIE"] += 1;
         }
         elseif ($belg3 < $croi3 ){
-            $point["CROATIEP"] += 3;
-            $gagnant["CROATIEG"] += 1;
-            $defaite["BELQIQUED"] += 1;
+            $point["CROATIE"] += 3;
+            $gagnant["CROATIE"] += 1;
+            $defaite["BELQIQUE"] += 1;
         }
         else {
-            $point["BELQIQUEP"] += 1;
-            $point["CROATIEP"] += 1;
-            $null["BELQIQUEN"] += 1;
-            $null["CROATIEN"] += 1;
+            $point["BELQIQUE"] += 1;
+            $point["CROATIE"] += 1;
+            $null["BELQIQUE"] += 1;
+            $null["CROATIE"] += 1;
         }
     }
 
     //ceux compteur final en variables 
-    $Mmat = $matches["MAROCM"] ;
-    $CRmat = $matches["CROATIEM"] ;
-    $CAmat = $matches["CANADAM"] ;
-    $Bmat = $matches["BELQIQUEM"] ;
+    $Mmat = $matches["MAROC"] ;
+    $CRmat = $matches["CROATIE"] ;
+    $CAmat = $matches["CANADA"] ;
+    $Bmat = $matches["BELQIQUE"] ;
     
     //ceux compteur final en variables 
-    $Mpts =  $point["MAROCP"];
-    $CRpts =  $point["CROATIEP"];
-    $CNpts =  $point["CANADAP"];
-    $Bpts =  $point["BELQIQUEP"];
+    $Mpts =  $point["MAROC"];
+    $CRpts =  $point["CROATIE"];
+    $CNpts =  $point["CANADA"];
+    $Bpts =  $point["BELQIQUE"];
 
     //ceux compteur final en variables 
-    $Mgan =  $gagnant["MAROCG"];
-    $CRgan =  $gagnant["CROATIEG"];
-    $CNgan =  $gagnant["CANADAG"];
-    $Bgan=  $gagnant["BELQIQUEG"];
+    $Mgan =  $gagnant["MAROC"];
+    $CRgan =  $gagnant["CROATIE"];
+    $CNgan =  $gagnant["CANADA"];
+    $Bgan=  $gagnant["BELQIQUE"];
 
     //ceux compteur final en variables
-    $Mnul =  $null["MAROCN"];
-    $CRnul = $null["CROATIEN"];
-    $CNnul = $null["CANADAN"];
-    $Bnul =  $null["BELQIQUEN"];
+    $Mnul =  $null["MAROC"];
+    $CRnul = $null["CROATIE"];
+    $CNnul = $null["CANADA"];
+    $Bnul =  $null["BELQIQUE"];
 
     //ceux compteur final en variables
-    $Mdef =  $defaite["MAROCD"];
-    $CRdef = $defaite["CROATIED"];
-    $CNdef = $defaite["CANADAD"];
-    $Bdef =  $defaite["BELQIQUED"]; 
+    $Mdef =  $defaite["MAROC"];
+    $CRdef = $defaite["CROATIE"];
+    $CNdef = $defaite["CANADA"];
+    $Bdef =  $defaite["BELQIQUE"]; 
 
     //ceux compteur final en variables
-    $Mgoal =  $goalfor["MAROCY"];
-    $CRgoal = $goalfor["CROATIEY"];
-    $CNgoal = $goalfor["CANADAY"];
-    $Bgoal =  $goalfor["BELQIQUEY"];
+    $Mgoal =  $goalfor["MAROC"];
+    $CRgoal = $goalfor["CROATIE"];
+    $CNgoal = $goalfor["CANADA"];
+    $Bgoal =  $goalfor["BELQIQUE"];
 
     //ceux compteur final en variables
-    $Mgoals =  $goalsConceded["MAROCL"];
-    $CRgoals = $goalsConceded["CROATIEL"];
-    $CNgoals = $goalsConceded["CANADAL"];
-    $Bgoals =  $goalsConceded["BELQIQUEL"];
+    $Mgoals =  $goalsConceded["MAROC"];
+    $CRgoals = $goalsConceded["CROATIE"];
+    $CNgoals = $goalsConceded["CANADA"];
+    $Bgoals =  $goalsConceded["BELQIQUE"];
 
 
 
-    // those final counter into variables 
+    //ceux compteur final en variables 
     $diffEQ1 = $Mgoal - $Mgoals ;
     $diffEQ2 = $CRgoal - $CRgoals ;
     $diffEQ3 = $CNgoal - $CNgoals ;
