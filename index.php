@@ -159,6 +159,8 @@
     $goalfor = array("MAROC" => 0 , "CROATIE" => 0, "CANADA" => 0, "BELQIQUE" => 0);
     $goalsConceded = array("MAROC" => 0 , "CROATIE" => 0, "CANADA" => 0, "BELQIQUE" => 0);
 
+    
+
     //ajoute point selon compteur par if
     if($maro!="" && $croi!=""){
 
@@ -188,6 +190,7 @@
             $null["CROATIE"] += 1;
 
         }
+  
     }
     
     if($belg!="" && $cana!=""){
@@ -385,9 +388,20 @@
     $diffEQ3 = $CNgoal - $CNgoals ;
     $diffEQ4 = $Bgoal - $Bgoals ;
 
-    echo "
-    <div class='container cont pb-0 pt-3' id='divfor'>
-    <table class='table table-bordered border-primary border border-dark'>
+    $DEF=array("MAROC" => $goalfor["MAROC"] - $goalsConceded["MAROC"] , "BELQIQUE" => $goalfor["BELQIQUE"]-$goalsConceded["BELQIQUE"] ,"CANADA" =>  $goalfor["CANADA"] - $goalsConceded["CANADA"], "CROATIE" => $goalfor["CROATIE"] - $goalsConceded["CROATIE"]);
+
+    
+    function cmp($a, $b) {
+        if ($a == $b) {
+            return 0;
+        }
+        return ($a < $b) ? 1 : -1;
+    }
+
+    uasort($point, 'cmp');
+    
+    echo "<div class='container cont pb-0 pt-3' id='divfor'>";
+    echo "<table class='table table-bordered border-primary border border-dark'>
     <tr>
         <th>Selección</th>
         <th>PTS.</th>
@@ -398,56 +412,23 @@
         <th>G.F.</th>
         <th>G.C.</th>
         <th>+/-</th>
-    </tr>
-    <tr>
-        <td>MOROCCO</td>
-        <td>$Mpts</td>
-        <td>$Mmat</td>
-        <td>$Mgan</td>
-        <td>$Mnul</td>
-        <td>$Mdef</td>
-        <td>$Mgoal</td>
-        <td>$Mgoals</td>
-        <td>$diffEQ1</td>
-
-    </tr>
-    <tr>
-        <td>CROATIA</td>
-        <td>$CRpts</td>
-        <td>$CRmat</td>
-        <td>$CRgan</td>
-        <td>$CRnul</td>
-        <td>$CRdef</td>
-        <td>$CRgoal</td>
-        <td>$CRgoals</td>
-        <td>$diffEQ2</td>
-        
-    </tr>
-    <tr>
-        <td>CANADA</td>
-        <td>$CNpts</td>
-        <td>$CAmat</td>
-        <td>$CNgan</td>
-        <td>$CNnul</td>
-        <td>$CNdef</td>
-        <td>$CNgoal</td>
-        <td>$CNgoals</td>
-        <td>$diffEQ3</td>
-    </tr>
-    <tr>
-        <td>BELGIUM</td>
-        <td>$Bpts</td>
-        <td>$Bmat</td>
-        <td>$Bgan</td>
-        <td>$Bnul</td>
-        <td>$Bdef</td>
-        <td>$Bgoal</td>
-        <td>$Bgoals</td>
-        <td>$diffEQ4</td>
-    </tr>
-    </table>
-    </div>
-    " ;
+    </tr>";
+    foreach ($point as $key => $value ) {
+       echo "<tr>
+        <td>$key</td>
+        <td>$value</td>
+        <td>$matches[$key]</td>
+        <td>$gagnant[$key]</td>
+        <td>$null[$key]</td>
+        <td>$defaite[$key]</td>
+        <td>$goalfor[$key]</td>  
+        <td>$goalsConceded[$key]</td>  
+        <td>$DEF[$key]</td>     
+   
+    </tr>";
+    }
+    echo "</table>";
+    echo "</div>";
 }
 
 ?>
